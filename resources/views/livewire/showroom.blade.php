@@ -24,33 +24,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1001</td>
-                    <td>A01</td>
-                    <td>Apple</td>
-                    <td>120</td>
-                    <td>$1.00</td>
-                    <td>$0.80</td>
-                    <td class="text-end"><button class="btn btn-sm btn-outline-primary">Add</button></td>
-                  </tr>
-                  <tr>
-                    <td>1002</td>
-                    <td>B02</td>
-                    <td>Banana</td>
-                    <td>200</td>
-                    <td>$0.60</td>
-                    <td>$0.45</td>
-                    <td class="text-end"><button class="btn btn-sm btn-outline-primary">Add</button></td>
-                  </tr>
-                  <tr>
-                    <td>1003</td>
-                    <td>C03</td>
-                    <td>Cherry</td>
-                    <td>90</td>
-                    <td>$2.00</td>
-                    <td>$1.70</td>
-                    <td class="text-end"><button class="btn btn-sm btn-outline-primary">Add</button></td>
-                  </tr>
+                  
+                @forelse($data as $item)
+                    <li>{{ $user->name }}</li>
+                @empty
+                    <tr>
+                        <td>1001</td>
+                        <td>A01</td>
+                        <td>Apple</td>
+                        <td>120</td>
+                        <td>$1.00</td>
+                        <td>$0.80</td>
+                        <td class="text-end"><button class="btn btn-sm btn-outline-primary">Add</button></td>
+                    </tr>
+                @endforelse
+                    
+                  
                 </tbody>
               </table>
             </div>

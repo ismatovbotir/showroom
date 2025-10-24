@@ -21,7 +21,7 @@
 <body class="p-4">
 
   <div class="container-fluid">
-    <livewire:showroom />
+    <livewire:Showroom />
   </div>
 
 </body>

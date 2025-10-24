@@ -11,16 +11,16 @@ class Showroom extends Component
 {
     public $search='';
     public $order=[];
-    public $data;
+    public $data=[];
     public function render()
     {
         if($this->search==''){
-            $this->data=Item::limit(20);
+            $this->data=Item::limit(20)->get();
         }else{
             $this->data=Item::where('mark',$this->search)
                                 ->orWhere('name','like','%'.$this->search.'%')
                                 ->orderBy('name','asc')
-                                ->limit(20);
+                                ->limit(20)->get();
         }
         return view('livewire.showroom');
     }
