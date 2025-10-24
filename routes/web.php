@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CollectController;
+use App\Http\Controllers\ShowroomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::resource('/showroom', ShowroomController::class);
+Route::resource('/collect',CollectController::class);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
