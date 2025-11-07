@@ -31,12 +31,15 @@ class ItemController extends Controller
     {
         $data=$request->all();
         foreach($data as $item){
-            Item::upsert([
-                $item,
+            Item::upsert(
+                [$item],
+                ['id'],
+                ['name','short_name','qty','price_sell','price_buy']
                 
-            ]);
+            );
 
         }
+        return ['status'=>'ok'];
     }
 
     /**

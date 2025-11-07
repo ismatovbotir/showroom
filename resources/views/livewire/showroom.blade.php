@@ -26,7 +26,15 @@
                 <tbody>
                   
                 @forelse($data as $item)
-                    <li>{{ $user->name }}</li>
+                <tr>
+                        <td>{{$item->id}}</td>
+                        <td>{{$item->mark}}</td>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->qty}}</td>
+                        <td>{{$item->price_buy}}</td>
+                        <td>{{$item->price_sell}}</td>
+                        <td class="text-end"><button class="btn btn-sm btn-outline-primary" wire:click="addItem({{$item->id}})">Add</button></td>
+                    </tr>
                 @empty
                     <tr>
                         <td>1001</td>
@@ -65,18 +73,16 @@
                   </tr>
                 </thead>
                 <tbody>
+                @forelse($order as $idx=>$orderItem)
                   <tr>
-                    <td><input type="text" class="form-control form-control-sm" value="Apple"></td>
-                    <td><input type="number" class="form-control form-control-sm" value="5"></td>
-                    <td><input type="text" class="form-control form-control-sm" value="1.00"></td>
-                    <td class="text-end"><button class="btn btn-sm btn-outline-danger">Delete</button></td>
+                    <td>{{$orderItem['name']}}</td>
+                    <td><input type="number" class="form-control form-control-sm" value="{{$orderItem['qty']}}"></td>
+                   
+                    <td class="text-end"><button class="btn btn-sm btn-outline-danger" wire:click="delOrderItem({{$idx}})">Delete</button></td>
                   </tr>
-                  <tr>
-                    <td><input type="text" class="form-control form-control-sm" value="Banana"></td>
-                    <td><input type="number" class="form-control form-control-sm" value="10"></td>
-                    <td><input type="text" class="form-control form-control-sm" value="0.60"></td>
-                    <td class="text-end"><button class="btn btn-sm btn-outline-danger">Delete</button></td>
-                  </tr>
+                  @empty
+                    
+                @endforelse 
                 </tbody>
               </table>
             </div>
