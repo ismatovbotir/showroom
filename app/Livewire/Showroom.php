@@ -42,10 +42,10 @@ class Showroom extends Component
         if($this->search==''){
             $this->data=Item::select(['id','mark','name','qty','price_sell','price_buy'])->limit(10)->get();
         }else{
-            $this->data=Item::where('mark',$this->search)
+            $this->data=Item::select(['id','mark','name','qty','price_sell','price_buy'])->where('mark',$this->search)
                                 ->orWhere('name','like','%'.$this->search.'%')
                                 ->orderBy('name','asc')
-                                ->limit(20)->get();
+                                ->limit(10)->get();
         }
         return view('livewire.showroom');
     }
