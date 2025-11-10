@@ -60,7 +60,7 @@
                   <tr>
                     <th>Name</th>
                     <th>Qty</th>
-                    <th>Price</th>
+                   
                     <th class="text-end">Action</th>
                   </tr>
                 </thead>
@@ -68,7 +68,7 @@
                 @forelse($order as $idx=>$orderItem)
                   <tr>
                     <td>{{$orderItem['name']}}</td>
-                    <td><input type="number" class="form-control form-control-sm" value="{{$orderItem['qty']}}"></td>
+                    <td><input type="number" class="form-control form-control-sm" value="{{$orderItem['qty']}}" wire:change='changeOrderItem({{$idx}},$event.target.value)'></td>
                    
                     <td class="text-end"><button class="btn btn-sm btn-outline-danger" wire:click="delOrderItem({{$idx}})">Delete</button></td>
                   </tr>

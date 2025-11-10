@@ -17,13 +17,25 @@ class Showroom extends Component
     
     public function addItem(Item $item){
        
-        $this->order[]=[
-            "code"=>$item->id,
-            "name"=>$item->name,
-            "price"=>$item->price_sell,
-            "qty"=>1
-        ];
-
+        $n=0;
+        foreach($this->order as $idx=>$orderItem){
+           // dd($orderItem);
+            if($orderItem['code']==$item->id){
+                $orderItem['qty']=$orderItem['qty']+1;
+                $n=1;
+                $this->order[$idx]=$orderItem;
+            }
+        }
+        if ($n==0){
+            $this->order[]=[
+                "code"=>$item->id,
+                "name"=>$item->name,
+                "price"=>$item->price_sell,
+                "qty"=>1
+            ];
+    
+        }
+        
         //dd($this->order);
     }
     public function delOrderItem($id){
@@ -35,6 +47,11 @@ class Showroom extends Component
 
         }
         $this->order=$tempOrder;
+    }
+    public function changeOrderItem($id,$value){
+        
+        $this->order[$id]["qty"]=(int)$value;
+        //dd($this->order[$id]);
     }
     
     public function render()
