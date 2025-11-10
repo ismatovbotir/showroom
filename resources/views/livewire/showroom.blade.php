@@ -36,15 +36,7 @@
                         <td class="text-end"><button class="btn btn-sm btn-outline-primary" wire:click="addItem({{$item->id}})">Add</button></td>
                     </tr>
                 @empty
-                    <tr>
-                        <td>1001</td>
-                        <td>A01</td>
-                        <td>Apple</td>
-                        <td>120</td>
-                        <td>$1.00</td>
-                        <td>$0.80</td>
-                        <td class="text-end"><button class="btn btn-sm btn-outline-primary">Add</button></td>
-                    </tr>
+                    
                 @endforelse
                     
                   
