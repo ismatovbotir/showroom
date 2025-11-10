@@ -49,8 +49,14 @@ class Showroom extends Component
         $this->order=$tempOrder;
     }
     public function changeOrderItem($id,$value){
-        
-        $this->order[$id]["qty"]=(int)$value;
+        if((int)$value==0){
+
+            $this->delOrderItem($id);
+
+        }else{
+
+            $this->order[$id]["qty"]=(int)$value;
+        }
         //dd($this->order[$id]);
     }
     
