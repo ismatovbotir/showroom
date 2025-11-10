@@ -45,7 +45,7 @@ class Showroom extends Component
             $this->data=Item::select(['id','mark','name','qty','price_sell','price_buy'])->where('mark',$this->search)
                                 ->orWhere('name','like','%'.$this->search.'%')
                                 ->orderBy('name','asc')
-                                ->limit(10)->get();
+                                ->get();
         }
         return view('livewire.showroom');
     }
