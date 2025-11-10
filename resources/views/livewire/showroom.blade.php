@@ -7,7 +7,7 @@
             <h5 class="card-title mb-3">Available Items</h5>
 
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Search by name, code, or mark...">
+              <input type="text" class="form-control" placeholder="Search by name, code, or mark..." wire:model.live="search">
             </div>
 
             <div class="table-container">
