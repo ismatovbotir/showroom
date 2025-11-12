@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +10,33 @@
     body {
       background-color: #f8f9fa;
     }
+
     .table-container {
       max-height: 70vh;
       overflow-y: auto;
     }
-    table th, table td {
+
+    table th,
+    table td {
       vertical-align: middle;
+    }
+
+
+    /* Chrome, Safari, Edge, Opera */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+      appearance: textfield;
     }
   </style>
 </head>
+
 <body class="p-4">
 
   <div class="container-fluid">
@@ -25,4 +44,5 @@
   </div>
 
 </body>
+
 </html>

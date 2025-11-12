@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('item_id')->constrained();
             $table->integer('qty')->default(1);
             $table->integer('price')->default(0);
-            $table->text('comment');
+            $table->text('comment')->nullable();
             
             $table->timestamps();
         });

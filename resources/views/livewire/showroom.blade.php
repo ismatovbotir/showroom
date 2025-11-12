@@ -52,8 +52,12 @@
       <div class="col-md-4">
         <div class="card shadow-sm border-0">
           <div class="card-body">
-            <h5 class="card-title mb-3">Selected Items</h5>
-
+            <div class="d-flex justify-content-between mb-2">
+              <h5 class="card-title mb-3">Buyurtma</h5>
+              @if(count($order)>0)
+                <button class="btn btn-success" wire:click="saveOrder">Save</button>
+              @endif          
+            </div>  
             <div class="table-container">
               <table class="table table-sm table-bordered align-middle">
                 <thead class="table-light">
@@ -67,10 +71,18 @@
                 <tbody>
                 @forelse($order as $idx=>$orderItem)
                   <tr>
-                    <td>{{$orderItem['name']}}</td>
-                    <td><input type="number" class="form-control form-control-sm" value="{{$orderItem['qty']}}" wire:change='changeOrderItem({{$idx}},$event.target.value)'></td>
+                    <td style="width:75%;" >{{$orderItem['name']}}</td>
+                    <td style="width:15%;" >
+                      <input type="number" 
+                        class="form-control form-control-sm text-center no-spin"
+                        
+                        wire:model.lazy="order.{{$idx}}.qty" 
+                        wire:change='changeOrderItem({{$idx}},$event.target.value)' min="0">
+                    </td>
                    
-                    <td class="text-end"><button class="btn btn-sm btn-outline-danger" wire:click="delOrderItem({{$idx}})">Delete</button></td>
+                    <td class="text-end" style="width:10%;" >
+                      <button class="btn btn-sm btn-outline-danger" wire:click="delOrderItem({{$idx}})">Delete</button>
+                    </td>
                   </tr>
                   @empty
                     
